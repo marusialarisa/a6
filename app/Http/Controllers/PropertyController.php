@@ -112,6 +112,7 @@ class PropertyController extends Controller
             $property=Property::find($id);
             $property->update(['description'=>$request->description,
                 'price'=>$request->price
+               // 'photo'=>$request->photo
             ]);
             return view('properties.admin_index',compact('properties','user'));
 
@@ -119,6 +120,7 @@ class PropertyController extends Controller
             $property = Property::find($id);
             $property->update(['description' => $request->description,
                 'price' => $request->price
+                //'photo'=>$request->photo
             ]);
         }
             return redirect()->route('properties.index',compact('properties','user'));

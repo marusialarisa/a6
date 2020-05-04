@@ -20,7 +20,7 @@ class ChangeTableProperties extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->enum('type',['sale','rent']);
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
