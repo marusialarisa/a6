@@ -14,11 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+*/
 
-//Route::resource('properties','API\PropertyController');
 
-//Route::post('register','API\UserController@register');
-//Route::post('login','API\UserController@login');
+Route::middleware('auth:api')->group(function () {
+    Route::get('user', 'API\UserController@details');
+    Route::resource('properties', 'API\PropertyController');
+});
+
+Route::post('register', 'API\UserController@register');
+Route::post('login', 'API\UserController@login');
+
+
+Route::post('create', 'API\PropertyController@create');
+Route::post('show', 'API\PropertyController@show');
