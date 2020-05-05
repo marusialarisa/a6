@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->group(function () {
     Route::get('user', 'API\UserController@details');
+    Route::get('user', 'API\PropertyController@details');
     Route::resource('properties', 'API\PropertyController');
 });
 

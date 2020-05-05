@@ -59,4 +59,11 @@ class PropertyController
             'data' => $property->toArray()
         ], 400);
     }
+
+
+    public function details()
+    {
+        return response()->json(['user' => auth()->user()], 200);
+    }
+
 }
